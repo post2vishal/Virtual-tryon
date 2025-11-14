@@ -57,6 +57,24 @@ Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance
 
 ---
 
+## 📚 DOI & Citation
+
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17605549.svg)](https://doi.org/10.5281/zenodo.17605549)
+
+**Citation:**
+
+Vishal Anant Seth. (2025). *post2vishal/Virtual-tryon: Try On Technology AI powered For Charitable Eyecare to Every Needy on Earth* (Version AITRYON) [Software]. Zenodo. [https://doi.org/10.5281/zenodo.17605549](https://doi.org/10.5281/zenodo.17605549)<grok-card data-id="88e84c" data-type="citation_card"></grok-card>
+
+> **Abstract**: Virtual-TryOn: Empowering Global Eyecare Access Through AI-Driven Virtual Fitting. Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance (PD) from a single selfie and integrating with 100K+ frames via FrameData API. Designed for charitable initiatives—deploy on low-cost kiosks ($50 Raspberry Pi) or mobile/web for NGOs.
+
+### Quick Download
+- [ZIP Archive (3.5 MB)](https://zenodo.org/files/post2vishal/Virtual-tryon-AITRYON.zip?download=1)
+- [Full Record](https://zenodo.org/records/17605549)
+
+**Keywords**: Virtual try-on, AI-powered eyewear, charitable eyecare, pupillary distance measurement, FrameData API
+
+*License: Software Open • Published: November 14, 2025*
+
 ## 🔄 **How It Works: From Selfie to Spectacles**
 
 ```mermaid
@@ -69,3 +87,5 @@ graph LR
   F --> G[Order to Local Lab / NGO]
   style A fill:#00D4FF,stroke:#000,color:#fff
   style G fill:#2ECC71,stroke:#000,color:#fff
+
+
