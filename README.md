@@ -101,6 +101,53 @@ Vishal Anant Seth. (2025). *post2vishal/Virtual-tryon: Try On Technology AI powe
 Add Virtual-TryOn today and watch your store become the **most loved eyewear destination** online and offline.  
 #EyecareForAll #EcommerceRevolution
 
+
+## 🌍 Join the Movement – Explore the Full Vision & Connect
+
+![Wiki Banner](https://raw.githubusercontent.com/post2vishal/Virtual-tryon/master/slide11.png)
+
+> **One open-source repo. Countless lives changed.**
+
+Dive deep into the complete story, history, technology, and global charitable mission behind Virtual-TryOn — the original Made-in-India AI eyewear revolution that began in 2007 and is now open to the world.
+
+### 📖 Official Project Wiki (Must Read!)
+**[Explore the Virtual Try-On Technology Wiki →](https://github.com/post2vishal/Virtual-tryon/wiki)**
+
+Inside you’ll discover:
+- The legendary journey from Softsol Consulting (2007) → Lenskart → today’s AI-powered open-source rebirth  
+- How this tech is already reducing returns by 85% and boosting conversions 5× for e-commerce stores  
+- Real-world charitable deployments: $50 Raspberry Pi kiosks bringing sight to rural India, Africa, and beyond  
+- Our audacious vision: **#EyecareForAll – reaching 500 million Indians and 2.2 billion people worldwide by 2030**
+
+### 🚀 How to Get Involved – Infinite Possibilities Await
+
+| You Are…                          | How You Can Change the World Today                                 |
+|-----------------------------------|--------------------------------------------------------------------|
+| **NGO / Vision Foundation**       | Deploy free kiosks in schools, slums, refugee camps                |
+| **E-commerce Store Owner**        | Add Virtual-TryOn → skyrocket sales & delight customers            |
+| **Developer / Contributor**       | Fork, improve PD accuracy, add 3D frames, translate to local languages |
+| **Philanthropist / Impact Investor** | Fund 1,000 kiosks or sponsor AI upgrades for underserved regions   |
+| **Optical Brand / Lab**           | Integrate FrameData API → become the most loved brand online       |
+| **Government / Health Ministry**  | Partner for national vision programs (like India’s NPCB)            |
+
+### 💌 Ready to Co-Create the Future of Sight?
+
+Whether you want:
+- Free charitable deployment support  
+- Enterprise-grade customization  
+- State-of-the-art AI enhancements  
+- Partnership with the original Indian pioneers since 2009  
+
+→ **Send one email and unlock infinite possibilities:**
+
+**Email:** [officialmarketingdoctor@gmail.com](mailto:officialmarketingdoctor@gmail.com)  
+(Just include your name, organization, and your vision — we reply within 24 hours)
+
+**Together, let’s make perfect vision not a privilege — but a reality for every human on Earth.**
+
+#EyecareForAll  |  One Selfie → One Billion Smiles  
+**From India to the World • Since 2007 • Now Open Source & Unstoppable**
+
 ## 🔄 **How It Works: From Selfie to Spectacles**
 
 ```mermaid
