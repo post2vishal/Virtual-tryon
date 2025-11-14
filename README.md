@@ -1,4 +1,5 @@
-# 🕶️ **Virtual-TryOn**  
+# 🕶️ **Virtual-TryOn** : Empowering Global Eyecare Access Through AI-Driven Virtual Fitting
+Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance (PD) from a single selfie and integrating with 100K+ frames via FrameData API. Designed for charitable initiatives—deploy on low-cost kiosks ($50 Raspberry Pi) or mobile/web for NGOs, vision centers, and tele-ophthalmology programs serving the 2.2B without eyecare access. MIT-licensed for seamless integration with WooCommerce, Shopify, or free e-commerce hosts to enable instant Rx uploads, affordable orders, and barrier-free vision for underserved communities. Join the mission: From luxury kiosks to equitable sight. 🌍🕶️ #EyecareForAll
 ### **Disrupting Optical Retail: From $500 Kiosks to 50¢ Mobile Try-Ons**  
 #### *AI-Powered, PD-Measuring, FrameData-Integrated Virtual Mirror — For the 2.2 Billion Who Can't Access Eyecare*
 
