@@ -20,9 +20,25 @@ Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance
 
 ---
 
-## Virtual Try-On: One Selfie → Perfect Fit
+## See It in Action – The Full Virtual-TryOn Experience
 
-![Virtual Try-On Demo – AI-Powered Eyewear Fitting](https://raw.githubusercontent.com/post2vishal/Virtual-tryon/master/slide11.png)
+![Virtual-TryOn Hero Banner – Real-Time AI Eyewear Fitting in Action](https://raw.githubusercontent.com/post2vishal/Virtual-tryon/master/home-slide-tryonapp-2-1920x1280.jpg)
+
+> **One selfie. Instant perfect fit.**  
+> AI measures your PD in milliseconds, overlays 100,000+ real frames (Ray-Ban, Oakley, local brands), and lets you try on glasses exactly as they’ll look on your face — all in your browser, no app needed.
+
+### Why This Changes Everything
+- **Zero friction** – Works on any phone, tablet, or $50 Raspberry Pi kiosk  
+- **E-commerce ready** – Plug into WooCommerce, Shopify, Magento in minutes  
+- **Charity-ready** – Deploy offline in rural clinics, schools, and vision camps  
+- **Made-in-India since 2009** – The original tech that powered Lenskart and thousands of stores worldwide
+
+**Ready to bring perfect vision to your customers — or to the 2.2 billion who’ve never had it?**  
+Explore the [Wiki](https://github.com/post2vishal/Virtual-tryon/wiki) • [Get Involved](mailto:officialmarketingdoctor@gmail.com)
+
+#EyecareForAll | One Selfie, Infinite Possibilities
+
+## Virtual Try-On: One Selfie → Perfect Fit
 
 > **No kiosk. No optician. Just your phone.**  
 > AI measures PD, fits 100K+ real frames, and lets users order instantly — all from a single selfie.
