@@ -3,6 +3,12 @@ Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance
 ### **Disrupting Optical Retail: From $500 Kiosks to 50¢ Mobile Try-Ons**  
 #### *AI-Powered, PD-Measuring, FrameData-Integrated Virtual Mirror — For the 2.2 Billion Who Can't Access Eyecare*
 
+## Demo: Virtual Try-On in Action
+
+![Virtual Try-On Slider Demo](https://raw.githubusercontent.com/post2vishal/Virtual-tryon/master/slide_virtual_tryon.jpg)
+
+> One selfie = Perfect fit in any mood. Integrates seamlessly with your e-commerce site.
+
 > **"One selfie = Perfect fit. No kiosk. No optician. No barriers."**
 
 [![Virtual-TryOn v1.0](https://img.shields.io/badge/Virtual--TryOn-v1.0-00D4FF?style=for-the-badge&logo=github)](https://github.com/post2vishal/Virtual-tryon)  
