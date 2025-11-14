@@ -20,6 +20,15 @@ Open-source virtual mirror for eyewear try-on, auto-measuring pupillary distance
 
 ---
 
+## Virtual Try-On: One Selfie → Perfect Fit
+
+![Virtual Try-On Demo – AI-Powered Eyewear Fitting](https://raw.githubusercontent.com/post2vishal/Virtual-tryon/master/slide11.png)
+
+> **No kiosk. No optician. Just your phone.**  
+> AI measures PD, fits 100K+ real frames, and lets users order instantly — all from a single selfie.
+
+---
+
 ## 🌍 **The $50 Billion Optical Access Gap**
 
 | Reality | 2025 Stats |
