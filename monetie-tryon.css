@@ -1,0 +1,556 @@
+/* ============================================================
+   Monetie Eyewear — Virtual Try-On  |  www.monetieyewear.com
+   Design language: dark luxury / warm gold
+   ============================================================ */
+
+/* ---- Reset & base ---- */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-deep:      #0e0e0e;
+    --bg-surface:   #1a1a1a;
+    --bg-raised:    #242424;
+    --bg-hover:     #2e2e2e;
+    --gold:         #c9a84c;
+    --gold-light:   #e2c97e;
+    --gold-dim:     #7a6330;
+    --cream:        #f0e6d0;
+    --text-muted:   #8a8070;
+    --border:       rgba(201,168,76,.25);
+    --shadow-card:  0 8px 32px rgba(0,0,0,.55);
+    --radius-card:  14px;
+    --radius-pill:  999px;
+    --transition:   .22s cubic-bezier(.4,0,.2,1);
+}
+
+html, body {
+    background: var(--bg-deep);
+    color: var(--cream);
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    font-size: 15px;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--gold); text-decoration: none; }
+a:hover { color: var(--gold-light); }
+
+/* ---- Page layout ---- */
+.mn-page {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+/* ---- Site header ---- */
+.mn-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 22px 0 18px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 36px;
+}
+.mn-header__logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.35rem;
+    font-weight: 700;
+    letter-spacing: .04em;
+    color: var(--cream);
+}
+.mn-header__logo span { color: var(--gold); }
+.mn-header__back {
+    font-size: .85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color var(--transition);
+}
+.mn-header__back:hover { color: var(--gold); }
+.mn-header__back svg { width: 14px; height: 14px; }
+
+/* ---- Page hero ---- */
+.mn-hero {
+    text-align: center;
+    margin-bottom: 44px;
+}
+.mn-hero__label {
+    display: inline-block;
+    font-size: .72rem;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius-pill);
+    padding: 4px 14px;
+    margin-bottom: 14px;
+}
+.mn-hero h1 {
+    font-size: clamp(1.6rem, 4vw, 2.6rem);
+    font-weight: 700;
+    letter-spacing: -.01em;
+    line-height: 1.2;
+    margin-bottom: 12px;
+}
+.mn-hero h1 em {
+    font-style: normal;
+    color: var(--gold);
+}
+.mn-hero p {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* ---- Two-column layout ---- */
+.mn-workspace {
+    display: grid;
+    grid-template-columns: minmax(0,1fr) 360px;
+    gap: 28px;
+    align-items: start;
+}
+@media (max-width: 900px) {
+    .mn-workspace {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---- Try-on canvas card ---- */
+.mn-canvas-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    position: relative;
+}
+.mn-canvas-card__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+}
+.mn-canvas-card__title {
+    font-size: .82rem;
+    font-weight: 600;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+.mn-live-dot {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: .75rem;
+    color: var(--text-muted);
+}
+.mn-live-dot::before {
+    content: '';
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: #4caf50;
+    box-shadow: 0 0 6px #4caf5088;
+    animation: mn-pulse 2s infinite;
+}
+@keyframes mn-pulse {
+    0%,100% { opacity: 1; }
+    50%      { opacity: .4; }
+}
+.mn-canvas-card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 24px 24px 0;
+    gap: 16px;
+}
+
+/* The actual VTO widget containers */
+#mn-tryonpreview {
+    width: 340px;
+    height: 420px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 24px rgba(0,0,0,.6);
+}
+#mn-tryonbar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 20px;
+}
+
+/* Override softsol control bar colours to match Monetie palette */
+.softsol-tryon-bar > div {
+    background: var(--bg-raised) !important;
+    border-color: var(--border) !important;
+    border-radius: var(--radius-pill) !important;
+}
+
+/* ---- Product info sidebar ---- */
+.mn-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* ---- Currently selected product card ---- */
+.mn-selected-card {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 20px;
+    box-shadow: var(--shadow-card);
+}
+.mn-selected-card__badge {
+    font-size: .68rem;
+    font-weight: 700;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+}
+.mn-selected-card__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 4px;
+}
+.mn-selected-card__sku {
+    font-size: .78rem;
+    color: var(--text-muted);
+    margin-bottom: 14px;
+}
+.mn-selected-card__img {
+    width: 100%;
+    border-radius: 8px;
+    background: var(--bg-raised);
+    overflow: hidden;
+    aspect-ratio: 16/9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+}
+.mn-selected-card__img img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 8px rgba(0,0,0,.4));
+}
+.mn-selected-card__price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--gold);
+    margin-bottom: 14px;
+}
+.mn-selected-card__price small {
+    font-size: .8rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    margin-left: 6px;
+}
+.mn-btn-cta {
+    display: block;
+    width: 100%;
+    padding: 13px 0;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #0e0e0e;
+    font-weight: 700;
+    font-size: .9rem;
+    letter-spacing: .04em;
+    text-align: center;
+    border: none;
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    transition: opacity var(--transition), transform var(--transition);
+    text-decoration: none;
+}
+.mn-btn-cta:hover {
+    opacity: .88;
+    transform: translateY(-1px);
+    color: #0e0e0e;
+}
+.mn-btn-secondary {
+    display: block;
+    width: 100%;
+    padding: 11px 0;
+    background: transparent;
+    color: var(--gold);
+    font-weight: 600;
+    font-size: .88rem;
+    letter-spacing: .04em;
+    text-align: center;
+    border: 1px solid var(--gold-dim);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    margin-top: 8px;
+    transition: border-color var(--transition), color var(--transition);
+    text-decoration: none;
+}
+.mn-btn-secondary:hover { border-color: var(--gold); color: var(--gold-light); }
+
+/* ---- PD Measurement tip ---- */
+.mn-pd-tip {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 14px;
+    font-size: .8rem;
+    color: var(--text-muted);
+    line-height: 1.55;
+}
+.mn-pd-tip strong { color: var(--cream); }
+
+/* ---- Products section ---- */
+.mn-products-section { margin-top: 44px; }
+.mn-section-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.mn-section-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    letter-spacing: -.01em;
+}
+.mn-section-title span { color: var(--gold); }
+.mn-section-link {
+    font-size: .8rem;
+    color: var(--gold);
+}
+
+/* ---- Filter tabs ---- */
+.mn-filter-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 22px;
+}
+.mn-tab {
+    padding: 6px 16px;
+    border-radius: var(--radius-pill);
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-size: .8rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all var(--transition);
+}
+.mn-tab:hover  { border-color: var(--gold-dim); color: var(--cream); }
+.mn-tab.active { border-color: var(--gold); background: rgba(201,168,76,.12); color: var(--gold); }
+
+/* ---- Product grid ---- */
+.mn-product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.mn-product-card {
+    background: var(--bg-surface);
+    border: 2px solid var(--border);
+    border-radius: var(--radius-card);
+    overflow: hidden;
+    cursor: pointer;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+    position: relative;
+}
+.mn-product-card:hover {
+    border-color: var(--gold-dim);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0,0,0,.5);
+}
+.mn-product-card.selected {
+    border-color: var(--gold);
+    box-shadow: 0 0 0 1px var(--gold), 0 10px 30px rgba(201,168,76,.18);
+}
+.mn-product-card__thumb {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: var(--bg-raised);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 14px;
+}
+.mn-product-card__thumb img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    filter: drop-shadow(0 2px 6px rgba(0,0,0,.35));
+    transition: transform var(--transition);
+}
+.mn-product-card:hover .mn-product-card__thumb img { transform: scale(1.05); }
+.mn-product-card__info { padding: 12px 14px 14px; }
+.mn-product-card__name {
+    font-size: .88rem;
+    font-weight: 600;
+    color: var(--cream);
+    margin-bottom: 3px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.mn-product-card__price { font-size: .82rem; color: var(--gold); font-weight: 700; }
+.mn-product-card__try-btn {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 9px 0;
+    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 100%);
+    color: #0e0e0e;
+    font-size: .78rem;
+    font-weight: 700;
+    letter-spacing: .05em;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(100%);
+    transition: opacity var(--transition), transform var(--transition);
+}
+.mn-product-card:hover .mn-product-card__try-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+.mn-product-card.selected .mn-product-card__try-btn { opacity: 1; transform: translateY(0); }
+.mn-selected-badge {
+    position: absolute;
+    top: 8px; right: 8px;
+    background: var(--gold);
+    color: #0e0e0e;
+    font-size: .65rem;
+    font-weight: 700;
+    letter-spacing: .1em;
+    padding: 2px 7px;
+    border-radius: var(--radius-pill);
+    opacity: 0;
+    transition: opacity var(--transition);
+}
+.mn-product-card.selected .mn-selected-badge { opacity: 1; }
+
+/* ---- Instructions strip ---- */
+.mn-steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin: 44px 0;
+}
+.mn-step {
+    background: var(--bg-surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-card);
+    padding: 20px 18px;
+    text-align: center;
+}
+.mn-step__num {
+    width: 34px; height: 34px;
+    border-radius: 50%;
+    background: rgba(201,168,76,.12);
+    border: 1px solid var(--gold-dim);
+    color: var(--gold);
+    font-size: .82rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 12px;
+}
+.mn-step__title {
+    font-size: .88rem;
+    font-weight: 700;
+    color: var(--cream);
+    margin-bottom: 5px;
+}
+.mn-step__desc { font-size: .78rem; color: var(--text-muted); line-height: 1.5; }
+
+/* ---- Toast notifications ---- */
+.mn-toast {
+    position: fixed;
+    bottom: 28px; right: 28px;
+    background: var(--bg-raised);
+    border: 1px solid var(--gold);
+    border-radius: 10px;
+    padding: 13px 20px;
+    color: var(--cream);
+    font-size: .85rem;
+    font-weight: 500;
+    box-shadow: 0 8px 24px rgba(0,0,0,.5);
+    z-index: 9999;
+    transform: translateY(20px);
+    opacity: 0;
+    transition: opacity .3s, transform .3s;
+    pointer-events: none;
+    max-width: 320px;
+}
+.mn-toast.visible { opacity: 1; transform: translateY(0); }
+.mn-toast__gold { color: var(--gold); font-weight: 700; }
+
+/* ---- Save / Share strip ---- */
+.mn-share-strip {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 4px;
+}
+.mn-share-btn {
+    flex: 1;
+    min-width: 110px;
+    padding: 9px 12px;
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-pill);
+    color: var(--text-muted);
+    font-size: .78rem;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.mn-share-btn:hover { border-color: var(--gold-dim); color: var(--cream); }
+.mn-share-btn svg { width: 14px; height: 14px; }
+
+/* ---- Footer ---- */
+.mn-footer {
+    margin-top: 60px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    font-size: .78rem;
+    color: var(--text-muted);
+}
+.mn-footer a { color: var(--text-muted); }
+.mn-footer a:hover { color: var(--gold); }
+.mn-footer__brand { color: var(--cream); font-weight: 600; }
+
+/* ---- Scrollbar ---- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-deep); }
+::-webkit-scrollbar-thumb { background: var(--bg-raised); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gold-dim); }
+
+/* ---- Mobile adjustments ---- */
+@media (max-width: 600px) {
+    .mn-header { padding: 16px 0 14px; }
+    .mn-hero h1 { font-size: 1.5rem; }
+    #mn-tryonpreview { width: 300px; height: 370px; }
+    .mn-canvas-card__body { padding: 16px 16px 0; }
+    .mn-product-grid { grid-template-columns: repeat(2, 1fr); }
+    .mn-steps { grid-template-columns: 1fr 1fr; }
+}
